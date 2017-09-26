@@ -28,7 +28,7 @@ The goals / steps of this project are the following:
 [image7]: ./output_images/rgb_256_20_002_training.PNG "Training Accuracy Curve without Dropout"
 [image8]: ./output_images/rgb_256_20_002_training_dropout.PNG "Training Accuracy Curve of Final Model"
 [image9]: ./output_images/rgb_256_20_002_validation_dropout.PNG "Validation Accuracy Curve of Final Model"
-[image9]: ./output_images/test_images.PNG "Validation Accuracy Curve of Final Model"
+[image10]: ./output_images/test_images.PNG "Validation Accuracy Curve of Final Model"
 
 ## Rubric Points
 ### Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/481/view) individually and describe how I addressed each point in my implementation.  
