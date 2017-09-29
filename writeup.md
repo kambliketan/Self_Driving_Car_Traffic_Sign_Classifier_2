@@ -28,7 +28,7 @@ The goals / steps of this project are the following:
 [image7]: ./output_images/rgb_256_20_002_training.PNG "Training Accuracy Curve without Dropout"
 [image8]: ./output_images/rgb_256_20_002_training_dropout.PNG "Training Accuracy Curve of Final Model"
 [image9]: ./output_images/rgb_256_20_002_validation_dropout.PNG "Validation Accuracy Curve of Final Model"
-[image10]: ./output_images/test_images.PNG "Validation Accuracy Curve of Final Model"
+[image10]: ./output_images/test_images2.PNG "Validation Accuracy Curve of Final Model"
 [image11]: ./output_images/bicycles_crossing.PNG "Bicycles Crossing"
 [image12]: ./output_images/slippery_road.PNG "Slippery Road"
 [image13]: ./output_images/beware_of_ice_snow.PNG "Beware of Ice and Snow"
@@ -135,13 +135,15 @@ Here are five German traffic signs that I chose to test on:
 
 ![alt text][image10]
 
-The first image `Children crossing` would be difficult to classify because it has some other object at the bottom right corner. It is difficult for even human eyes to see whether its children crossing or bicycles crossing. Here are some other similar images:
+The first image `Speed limit (30km/h)` can be tricky to exactly nail the speed limit i.e. whether its 30, 50 or 80, but other than that the image looks clear, bright and hence straight forward. This fact is reflected in the next section where I show the top five predictions, along with the softmax probability of how confident the classifier is. The classifier has 99.74% sure and makes correct prediction in this case. 
 
-![alt text][image11] | ![alt text][image12] | ![alt text][image13] | ![alt text][image14]
+The second image `Ahead only` has a some graffity on it that can make things a bit trickier but other than that the image looks clear, bright and hence straight forward. And the classifier makes no mistake there. 
 
-But the Classifier does excellent job to nail the correct class. As we will see later, the classifier detects all of above as it's second, third, fourth and fifth best choice!
+Third image `End of no passing` is dimly lit and not very clear and resembles many other traffic signs, see forth image above for example. So it is easy to make mistake here.
 
-The second image `Roundabout mandatory` has a blob in the middle that can make things a bit trickier but other than that the image looks clear, bright and hence straight forward. And the classifier makes no mistake there. Third image `No passing` again as the first one is not very clear and resembles many other traffic signs, see second and forth image above for example. Fourth image `Speed limit (50km/h)` has low brightness and hence can be challenging to see if its 50 or 30 or 80. Fifth example `No passing for vehicles over 3.5 metric tons` is a perfect example of the challenge the classifier has to deal with. It can be seen that the fifth image is very similar to third test image.
+Fourth image `No passing` has low brightness and resembles some other classes like the third image above. 
+
+Fifth example `No entry` is bright and clear and classifier should not have trouble classifying it. And indeed as shown in next section, it is almost 100% confident about its assertion.
 
 #### 2. Discuss the model's predictions on these new traffic signs and compare the results to predicting on the test set. At a minimum, discuss what the predictions were, the accuracy on these new predictions, and compare the accuracy to the accuracy on the test set (OPTIONAL: Discuss the results in more detail as described in the "Stand Out Suggestions" part of the rubric).
 
@@ -149,58 +151,68 @@ Here are the results of the prediction:
 
 | Image			        |     Prediction	        					| 
 |:---------------------:|:---------------------------------------------:| 
-| Children crossing     | Children crossing   							| 
-| Roundabout mandatory  | Roundabout mandatory 							|
-| No passing			| No passing									|
-| Speed limit (50km/h)	| Speed limit (50km/h)					 		|
-| No passing for vehicles over 3.5 metric tons	| No passing for vehicles over 3.5 metric tons  |
+| Speed limit (30km/h)     | Speed limit (30km/h)   							| 
+|  Ahead only  |  Ahead only 							|
+| End of no passing			| End of no passing									|
+| No passing	| No passing					 		|
+| No entry	| No entry  |
 
 
 The model was able to correctly guess 5 of the 5 traffic signs, which gives an accuracy of 100%. This compares favorably to the accuracy on the test set.
 
 #### 3. Describe how certain the model is when predicting on each of the five new images by looking at the softmax probabilities for each prediction. Provide the top 5 softmax probabilities for each image along with the sign type of each probability. (OPTIONAL: as described in the "Stand Out Suggestions" part of the rubric, visualizations can also be provided such as bar charts)
 
-The code for making predictions on my final model is located in the code cells 28 and 30 of the Ipython notebook.
+The code for making predictions on my final model is located at the bottom of the Ipython notebook.
 
 Here are the top 5 predictions for each of the test images. As we can see the model's first five predictions are very very intuitional! (Magic:))
 
-1. Children crossing
-2. Bicycles crossing
-3. Slippery road
-4. Beware of ice/snow
-5. Dangerous curve to the right
+| Probability         	|     Prediction	        					| 
+|:---------------------:|:---------------------------------------------:| 
+| 0.997478.             | Speed limit (30km/h)                          |
+| 0.00250469.           | Speed limit (20km/h)                          |
+| 8.5459e-06.           | Speed limit (50km/h)                          |
+| 8.0522e-06.           | Speed limit (70km/h)                          |
+| 1.032e-07.            | Speed limit (80km/h)                          |
 
 Second Image:
 
-1. Roundabout mandatory
-2. Go straight or left
-3. Keep left
-4. Keep right
-5. Ahead only
+| Probability         	|     Prediction	        					| 
+|:---------------------:|:---------------------------------------------:| 
+| 1.0.                  | Ahead only                                    |
+| 4e-10.                | Turn right ahead                              |
+| 2e-10.                | Go straight or left                           |
+| 1e-10.                | Keep left                                     |
+| 0.0.                  | Yield                                         |
 
 Third Image:
 
-1. No passing
-2. Vehicles over 3.5 metric tons prohibited
-3. No passing for vehicles over 3.5 metric tons
-4. Dangerous curve to the right
-5. No vehicles
+| Probability         	|     Prediction	        					| 
+|:---------------------:|:---------------------------------------------:| 
+| 0.999938. | End of no passing |
+| 3.85629e-05. | End of all speed and passing limits |
+| 2.03703e-05. | Vehicles over 3.5 metric tons prohibited |
+| 1.8229e-06. | No passing |
+| 8.049e-07. | Go straight or right |
 
 Fourth image:
 
-1. Speed limit (50km/h)
-2. Speed limit (30km/h)
-3. Speed limit (80km/h)
-4. Speed limit (60km/h)
-5. Speed limit (70km/h)
+| Probability         	|     Prediction	        					| 
+|:---------------------:|:---------------------------------------------:| 
+| 0.999992. | No passing |
+| 7.0573e-06. | Vehicles over 3.5 metric tons prohibited |
+| 7.686e-07. | No passing for vehicles over 3.5 metric tons |
+| 5.855e-07. | Dangerous curve to the right |
+| 9.7e-09. | End of no passing |
 
-5th image:
+Fifth image:
 
-1. No passing for vehicles over 3.5 metric tons
-2. Speed limit (80km/h)
-3. No passing
-4. Speed limit (100km/h)
-5. End of no passing by vehicles over 3.5 metric tons
+| Probability         	|     Prediction	        					| 
+|:---------------------:|:---------------------------------------------:| 
+| 1.0. | No entry |
+| 0.0. | No passing |
+| 0.0. | Stop |
+| 0.0. | Dangerous curve to the right |
+| 0.0. | Priority road |
 
 ### (Optional) Visualizing the Neural Network (See Step 4 of the Ipython notebook for more details)
 #### 1. Discuss the visual output of your trained network's feature maps. What characteristics did the neural network use to make classifications?
