@@ -29,6 +29,10 @@ The goals / steps of this project are the following:
 [image8]: ./output_images/rgb_256_20_002_training_dropout.PNG "Training Accuracy Curve of Final Model"
 [image9]: ./output_images/rgb_256_20_002_validation_dropout.PNG "Validation Accuracy Curve of Final Model"
 [image10]: ./output_images/test_images.PNG "Validation Accuracy Curve of Final Model"
+[image11]: ./output_images/bicycles_crossing.PNG "Bicycles Crossing"
+[image12]: ./output_images/slippery_road.PNG "Slippery Road"
+[image13]: ./output_images/beware_of_ice_snow.PNG "Beware of Ice and Snow"
+[image14]: ./output_images/dangerous_curve_right.PNG "Dangerous Curve Right"
 
 ## Rubric Points
 ### Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/481/view) individually and describe how I addressed each point in my implementation.  
@@ -131,6 +135,14 @@ Here are five German traffic signs that I chose to test on:
 
 ![alt text][image10]
 
+The first image `Children crossing` would be difficult to classify because it has some other object at the bottom right corner. It is difficult for even human eyes to see whether its children crossing or bicycles crossing. Here are some other similar images:
+
+![alt text][image11] | ![alt text][image12] | ![alt text][image13] | ![alt text][image14]
+
+But the Classifier does excellent job to nail the correct class. As we will see later, the classifier detects all of above as it's second, third, fourth and fifth best choice!
+
+The second image `Roundabout mandatory` has a blob in the middle that can make things a bit trickier but other than that the image looks clear, bright and hence straight forward. And the classifier makes no mistake there. Third image `No passing` again as the first one is not very clear and resembles many other traffic signs, see second and forth image above for example. Fourth image `Speed limit (50km/h)` has low brightness and hence can be challenging to see if its 50 or 30 or 80. Fifth example `No passing for vehicles over 3.5 metric tons` is a perfect example of the challenge the classifier has to deal with. It can be seen that the fifth image is very similar to third test image.
+
 #### 2. Discuss the model's predictions on these new traffic signs and compare the results to predicting on the test set. At a minimum, discuss what the predictions were, the accuracy on these new predictions, and compare the accuracy to the accuracy on the test set (OPTIONAL: Discuss the results in more detail as described in the "Stand Out Suggestions" part of the rubric).
 
 Here are the results of the prediction:
@@ -139,8 +151,8 @@ Here are the results of the prediction:
 |:---------------------:|:---------------------------------------------:| 
 | Children crossing     | Children crossing   							| 
 | Roundabout mandatory  | Roundabout mandatory 							|
-| No passingd			| No passing									|
-| Speed limit (50km/h)w	| Speed limit (50km/h)					 		|
+| No passing			| No passing									|
+| Speed limit (50km/h)	| Speed limit (50km/h)					 		|
 | No passing for vehicles over 3.5 metric tons	| No passing for vehicles over 3.5 metric tons  |
 
 
